@@ -66,7 +66,7 @@ def img_turn(name,sourcepath,targetpath):
     flipped = cv2.flip(img, -1)
     cv2.imwrite(targetpath +name + '_flip2.png', flipped)
 
-# 放射
+# 仿射变换
 def img_affineTransform(name,sourcepath,targetpath):
     img = cv2.imread(sourcepath + name + '.png')
     rows, cols, ch = img.shape
@@ -230,46 +230,36 @@ def addSaltNoise(name,sourcepath,targetpath):
 
 # 1 Create a black image
 #createImg()
-"""
-for l in letters_up:
-    create_img(l,img_from_dir+'/letters_upper/')
-for i in letters_low:
-    create_img(i,img_from_dir+'/letters_lower/')
-for i in number:
-    create_img(i,img_from_dir + '/number/')
-"""
-
-
 
 # 原图
-img = cv2.imread(img_from_dir+'letters_upper/'+'A.png')
-img0 = cv2.imread(img_from_dir+'letters_upper/'+'A.png',0)
+#img = cv2.imread(img_from_dir+'letters_upper/'+'A.png')
+#img0 = cv2.imread(img_from_dir+'letters_upper/'+'A.png',0)
 #show_img('A',img)
 
 # 2 几何变换 缩放，平移，旋转
-"""
+
 for l in letters_up:
     img_turn(l,img_from_dir+'letters_upper/',img_to_dir+'letters_upper/')
 for l in letters_low:
     img_turn(l, img_from_dir + 'letters_lower/', img_to_dir + 'letters_lower/')
 for l in number:
     img_turn(l, img_from_dir + 'number/', img_to_dir + 'number/')
-"""
+
 # 3 AffineTransform 放射变换
 #img_affineTransform(l,img_from_dir+'letters_upper/',img_to_dir+'letters_upper/')
-"""
 for l in letters_up:
     img_affineTransform(l,img_from_dir+'letters_upper/',img_to_dir+'letters_upper/')
 for l in letters_low:
     img_affineTransform(l, img_from_dir + 'letters_lower/', img_to_dir + 'letters_lower/')
 for l in number:
     img_affineTransform(l, img_from_dir + 'number/', img_to_dir + 'number/')
-"""
+
 
 # 3 透视变换
 #img_shijueTransforimages[i]m(img)
-for l in letters_up:
-    img_shijueTransform(l,img_from_dir+'letters_upper/',img_to_dir+'letters_upper/')
+
+#for l in letters_up:
+#    img_shijueTransform(l,img_from_dir+'letters_upper/',img_to_dir+'letters_upper/')
 
 # 简单阈值
 #simpleThreshold(img0)
@@ -282,17 +272,17 @@ for l in letters_up:
 
 # 添加 高斯白噪声，椒盐噪声
 #addSimpleNoise(img)
-"""
+
 for l in letters_up:
     addGussiaNoise(l,img_from_dir+'letters_upper/',img_to_dir+'letters_upper/')
     addSaltNoise(l,img_from_dir+'letters_upper/',img_to_dir+'letters_upper/')
 for l in letters_low:
     addGussiaNoise(l,img_from_dir+'letters_lower/',img_to_dir+'letters_lower/')
     addSaltNoise(l,img_from_dir+'letters_lower/',img_to_dir+'letters_lower/')
-for l in letters_up:
+for l in number:
     addGussiaNoise(l,img_from_dir+'number/',img_to_dir+'number/')
     addSaltNoise(l,img_from_dir+'number/',img_to_dir+'number/')
-"""
+
 # 图片叠加，随机的50张
 
 
